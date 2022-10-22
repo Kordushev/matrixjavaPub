@@ -16,5 +16,7 @@ public class Main {
         System.out.println(stripes[3].visible);
         System.out.println(stripes[4].visible);
         System.out.println(stripes[5].visible);
+
+        System.out.println(stripes[5].visible);
     }
 }
