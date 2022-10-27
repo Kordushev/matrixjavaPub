@@ -1,34 +1,32 @@
 import java.util.Random;
 
 public class Stripe {
-     private int stripeCounter;
-     private int chanceOfVisibility;
-     boolean visible;
-     Random rnd;
+    int chance,
+        stripeCounter,
+        maxStripeLength = 10;
+    char symbol;
+    Random rnd = new Random();
 
-    public Stripe(int percentOfVisibility){
-        rnd = new Random();
-        this.chanceOfVisibility = rnd.nextInt(100);
-
-        if (this.chanceOfVisibility < percentOfVisibility) {
-            this.visible = true;
-        }
-        else{
-            this.visible = false;
-        }
-        this.stripeCounter = rnd.nextInt(6);
+    Stripe(int chance) {
+        this.chance = chance;
     }
 
-    public char output(){
-        if (visible == true) {
-            char symbol;
-            symbol = (char) rnd.nextInt(127);
-            this.stripeCounter--;
-            return symbol;
+    char printMatrix (){
+        if (stripeCounter == 0){
+            int newStripeCounter = rnd.nextInt(100);
+            if (newStripeCounter > chance){
+                stripeCounter = rnd.nextInt(maxStripeLength);
+            }
+            else{
+                symbol = (char)32;
+            }
         }
-        else {
+        else{
+            String pangramm = "Jackdaws love my big sphinx of quartz";
+            int symbolPosition = rnd.nextInt( pangramm.length());
+            symbol = pangramm.charAt(symbolPosition);
             stripeCounter--;
-            return ' ';
         }
+        return symbol;
     }
 }

@@ -2,21 +2,20 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+        String output="";
         Stripe[] stripes = new Stripe[50];
-        /*for (Stripe s:stripes){
-            s = new Stripe(50);
-        }*/
 
-        for (int i=0; i < stripes.length; i++) {
-            stripes[i] = new Stripe(50);
+        for (int i=0; i<stripes.length; i++) {
+            stripes[i] = new Stripe(93);
         }
-        System.out.println(stripes[0].visible);
-        System.out.println(stripes[1].visible);
-        System.out.println(stripes[2].visible);
-        System.out.println(stripes[3].visible);
-        System.out.println(stripes[4].visible);
-        System.out.println(stripes[5].visible);
 
-        System.out.println(stripes[5].visible);
+        for (int k=0; k<100; k++) {
+            output = "";
+            for (int i = 0; i < stripes.length; i++) {
+                char o = stripes[i].printMatrix();
+                output += o;
+            }
+            System.out.println(output);
+        }
     }
 }
